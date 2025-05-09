@@ -20,10 +20,10 @@ namespace Poster2.API.Models
         public List<Like> Likes { get; set; } = new List<Like>();
         public List<Follow> Followers { get; set; } = new List<Follow>();
         public List<Follow> Following { get; set; } = new List<Follow>();
-        public string Website { get; internal set; }
-        public DateTime UpdatedAt { get; internal set; }
-        public int FollowersCount { get; internal set; }
-        public int FollowingCount { get; internal set; }
-        public int PostsCount { get; internal set; }
+        public string? Website { get; set; } = string.Empty;
+        public DateTime UpdatedAt { get; set; }
+        public int FollowersCount { get; set; }
+        public int FollowingCount { get; set; }
+        public int PostsCount { get; set; }
     }
 }

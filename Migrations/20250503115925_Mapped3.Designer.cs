@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Poster2.API.Data;
 
@@ -11,9 +12,11 @@ using Poster2.API.Data;
 namespace Poster2.API.Migrations
 {
     [DbContext(typeof(Poster2Context))]
-    partial class Poster2ContextModelSnapshot : ModelSnapshot
+    [Migration("20250503115925_Mapped3")]
+    partial class Mapped3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

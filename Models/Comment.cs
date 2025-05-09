@@ -2,7 +2,8 @@
 {
     public class Comment
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        // Remove the default initialization so we can control it from the controller
+        public Guid Id { get; set; }
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;

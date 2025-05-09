@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Poster2.API.Data;
 
@@ -11,9 +12,11 @@ using Poster2.API.Data;
 namespace Poster2.API.Migrations
 {
     [DbContext(typeof(Poster2Context))]
-    partial class Poster2ContextModelSnapshot : ModelSnapshot
+    [Migration("20250503115622_Mapped2")]
+    partial class Mapped2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,9 +105,8 @@ namespace Poster2.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Website")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -222,6 +224,9 @@ namespace Poster2.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CommentCount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -229,14 +234,32 @@ namespace Poster2.API.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LikeCount")
+                        .HasColumnType("int");
+
                     b.Property<Guid?>("ProfileId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ProfilePicture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RetweetCount")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
