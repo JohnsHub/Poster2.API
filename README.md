@@ -1,225 +1,64 @@
-Poster2.API
-
-Overview
-
-A minimal ASP.NET Core Web API for a Twitter‑style application. Provides secure CRUD operations for users, posts, comments, likes, retweets, and follows. Implements JWT authentication and role‑based authorization.
-
-Key Features
-
-User Management: Registration, login, profile retrieval.
-
-Posts: Create, read, update, delete posts.
-
-Comments, Likes, Retweets: Full CRUD for comments; endpoints for liking and retweeting posts.
-
-Follows: Create and remove follow relationships between users.
-
-Authentication: JWT‑based, secure endpoints with [Authorize] attributes.
-
-CORS Enabled: Cross‑origin requests allowed for frontend integration.
-
-API Endpoints
-
-Resource
-
-Method
-
-Endpoint
-
-Description
-
-Auth
-
-POST
-
-/api/auth/register
-
-User registration
-
-Auth
-
-POST
-
-/api/auth/login
-
-User login, returns JWT
-
-Posts
-
-GET
-
-/api/posts
-
-List all posts
-
-Posts
-
-GET
-
-/api/posts/{id}
-
-Get single post by ID
-
-Posts
-
-POST
-
-/api/posts
-
-Create a new post
-
-Posts
-
-PUT
-
-/api/posts/{id}
-
-Update an existing post
-
-Posts
-
-DELETE
-
-/api/posts/{id}
-
-Delete a post
-
-Comments
-
-GET
-
-/api/comments/{postId}
-
-List comments for a post
-
-Comments
-
-GET
-
-/api/comments/{id}
-
-Get comment by ID
-
-Comments
-
-POST
-
-/api/comments
-
-Create a comment
-
-Comments
-
-PUT
-
-/api/comments/{id}
-
-Update a comment
-
-Comments
-
-DELETE
-
-/api/comments/{id}
-
-Delete a comment
-
-Likes
-
-GET
-
-/api/like
-
-List all likes
-
-Likes
-
-POST
-
-/api/like
-
-Like a post
-
-Likes
-
-DELETE
-
-/api/like/{id}
-
-Unlike a post
-
-Retweets
-
-GET
-
-/api/retweet
-
-List all retweets
-
-Retweets
-
-POST
-
-/api/retweet
-
-Retweet a post
-
-Retweets
-
-DELETE
-
-/api/retweet/{id}
-
-Remove a retweet
-
-Follows
-
-GET
-
-/api/follow
-
-List all follows
-
-Follows
-
-POST
-
-/api/follow
-
-Follow a user
-
-Follows
-
-DELETE
-
-/api/follow/{id}
-
-Unfollow a user
-
-Data Models
-
-AppUser: GUID ID, username, email, profile details.
-
-Post: GUID ID, content, timestamps, author reference.
-
-Comment: GUID ID, content, timestamps, post and user references.
-
-Like: GUID ID, user and post references.
-
-Retweet: GUID ID, user and post references.
-
-Follow: GUID ID, follower and followee references.
-
-Authentication & Security
-
-Uses ASP.NET Core Identity with IdentityUser<Guid>.
-
-JWT tokens issued on login, validated on protected routes.
-
-Password policy: minimum length 6, no non‑alphanumeric requirement.
-
-Error Handling
-
-Returns standard HTTP status codes: 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 500 Internal Server Error.
-
-Validation errors return model state details in the response body.
+# Poster2.API
+
+## Overview
+
+A minimal ASP.NET Core Web API for a Twitter-style application. Provides secure CRUD operations for users, posts, comments, likes, retweets, and follows. Implements JWT authentication and role-based authorization.
+
+## Key Features
+
+* **User Management**: Registration, login, profile retrieval.
+* **Posts**: Create, read, update, delete posts.
+* **Comments, Likes, Retweets**: Full CRUD for comments; endpoints for liking and retweeting posts.
+* **Follows**: Create and remove follow relationships between users.
+* **Authentication**: JWT-based, secure endpoints with authorization attributes.
+* **CORS**: Enabled for frontend integration.
+
+## API Endpoints
+
+| Resource | Method | Endpoint                 | Description              |
+| -------- | ------ | ------------------------ | ------------------------ |
+| Auth     | POST   | `/api/auth/register`     | User registration        |
+| Auth     | POST   | `/api/auth/login`        | User login (returns JWT) |
+| Posts    | GET    | `/api/posts`             | List all posts           |
+| Posts    | GET    | `/api/posts/{id}`        | Get a post by ID         |
+| Posts    | POST   | `/api/posts`             | Create a new post        |
+| Posts    | PUT    | `/api/posts/{id}`        | Update an existing post  |
+| Posts    | DELETE | `/api/posts/{id}`        | Delete a post            |
+| Comments | GET    | `/api/comments/{postId}` | List comments for a post |
+| Comments | GET    | `/api/comments/{id}`     | Get a comment by ID      |
+| Comments | POST   | `/api/comments`          | Create a comment         |
+| Comments | PUT    | `/api/comments/{id}`     | Update a comment         |
+| Comments | DELETE | `/api/comments/{id}`     | Delete a comment         |
+| Likes    | GET    | `/api/like`              | List all likes           |
+| Likes    | POST   | `/api/like`              | Like a post              |
+| Likes    | DELETE | `/api/like/{id}`         | Unlike a post            |
+| Retweets | GET    | `/api/retweet`           | List all retweets        |
+| Retweets | POST   | `/api/retweet`           | Retweet a post           |
+| Retweets | DELETE | `/api/retweet/{id}`      | Remove a retweet         |
+| Follows  | GET    | `/api/follow`            | List all follows         |
+| Follows  | POST   | `/api/follow`            | Follow a user            |
+| Follows  | DELETE | `/api/follow/{id}`       | Unfollow a user          |
+
+## Data Models
+
+* **AppUser**: GUID ID, username, email, profile details.
+* **Post**: GUID ID, content, timestamps, author reference.
+* **Comment**: GUID ID, content, timestamps, post and user references.
+* **Like**: GUID ID, user and post references.
+* **Retweet**: GUID ID, user and post references.
+* **Follow**: GUID ID, follower and followee references.
+
+## Authentication & Security
+
+* Uses ASP.NET Core Identity with `IdentityUser<Guid>`.
+* JWT tokens issued on login, validated on protected routes.
+* Password policy: minimum length 6, no non-alphanumeric requirement.
+
+## Error Handling
+
+* Returns standard HTTP status codes: `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, `500 Internal Server Error`.
+* Validation errors return model state details in the response body.
+
+---
+
+*Generated by Poster2.API*
