@@ -81,6 +81,10 @@ namespace Poster2.API.Data
                 .HasForeignKey<Profile>(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade); // Cascade delete for Profile when User is deleted
 
+            modelBuilder.Entity<AppUser>()
+    .Property(u => u.Website)
+    .HasDefaultValue(string.Empty);
+
         }
     }
 }
